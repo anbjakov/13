@@ -15,6 +15,6 @@ const getUsers = async (desireCompanyName)=>{
         console.log(error)
     }
 }
-getUsers().then(result=>console.log(`list of users: ${result.getAllUsers}`));
+getUsers().then(result=>console.log(`list of users: ${result.allUsers}`));
 
-getUsers(requestedCompany).then(result=>console.log(`seeking user is: ${result.getUsersByCompanyName}`));
+getUsers(requestedCompany).then(result=>console.log(`seeking user is: ${result.usersByCompanyName}`));
