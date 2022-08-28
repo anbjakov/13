@@ -1,14 +1,14 @@
 'use strict'
 const API_URL =  'https://jsonplaceholder.typicode.com/users';
-
+const requestedCompany = "Johns Group";
 const getUsers = async (desireCompanyName)=>{
     try{
         const response  = await fetch(API_URL);
         const usersList = await response.json();
         const desireUser = usersList.filter(userInfo=>userInfo?.company.name === desireCompanyName);
         return {
-            getAllUsers: usersList.map(user=>user.name),
-            getUsersByCompanyName: desireUser.map(user=>user.name)
+            allUsers: usersList.map(user=>user.name),
+            usersByCompanyName: desireUser.map(user=>user.name)
         }
     }
     catch(error){
@@ -17,4 +17,4 @@ const getUsers = async (desireCompanyName)=>{
 }
 getUsers().then(result=>console.log(`list of users: ${result.getAllUsers}`));
 
-getUsers("Johns Group").then(result=>console.log(`seeking user is: ${result.getUsersByCompanyName}`));
+getUsers(requestedCompany).then(result=>console.log(`seeking user is: ${result.getUsersByCompanyName}`));
